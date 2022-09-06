@@ -9,6 +9,12 @@ namespace Persistence
         {
 
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("DataSource=activities.db");
+        }
+
         public DbSet<Activity> Activities { get; set; }
     }
 }
