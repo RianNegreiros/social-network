@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'semantic-ui-css/semantic.min.css';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './app/layoutstyles.css';
+import App from './app/layout/App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,5 +11,3 @@ const root = ReactDOM.createRoot(
 root.render(
     <App />
 );
-
-reportWebVitals();
