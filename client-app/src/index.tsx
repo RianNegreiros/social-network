@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'semantic-ui-css/semantic.min.css';
-import './app/layoutstyles.css';
+import './app/layout/styles.css';
 import App from './app/layout/App';
 
 const root = ReactDOM.createRoot(
