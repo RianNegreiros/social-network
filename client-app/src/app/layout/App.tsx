@@ -15,8 +15,8 @@ function App() {
     })
   }, [])
 
-  function handleSelectedActivity(id: string) {
-    setSelectedActivity(activities.find(x => x.id ===id))
+  function handleSelectActivity(id: string) {
+    setSelectedActivity(activities.find(x => x.id === id))
   }
 
   function handleCancelSelectActivity() {
@@ -27,9 +27,10 @@ function App() {
     <>
         <NavBar />
         <Container style={{marginTop: '7em'}}>
-          <ActivityDashboard activities={activities}
+          <ActivityDashboard 
+          activities={activities}
           selectedActivity={selectedActivity}
-          selectActivity={handleSelectedActivity}
+          selectActivity={handleSelectActivity}
           cancelSelectActivity={handleCancelSelectActivity}
           />
         </Container>
