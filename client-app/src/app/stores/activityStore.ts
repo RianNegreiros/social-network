@@ -54,15 +54,14 @@ loadActivity = async (id: string) => {
   }
 }
 
-  private setActivity = (activity: Activity) => {
-    activity.date = activity.date.split('T')[0];
-    this.activityRegistry.set(activity.id, activity);
-  }
+private setActivity = (activity: Activity) => {
+  activity.date = activity.date.split('T')[0];
+  this.activityRegistry.set(activity.id, activity);
+}
 
-  private getActivity = (id: string) => {
-    return this.activityRegistry.get(id);
-  }
-
+private getActivity = (id: string) => {
+  return this.activityRegistry.get(id);
+}
   setLoadingInitial = (state: boolean) => {
     this.loadingInitial = state;
   }
