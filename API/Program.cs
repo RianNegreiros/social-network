@@ -6,6 +6,8 @@ using API.Middleware;
 using API.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,11 @@ builder.Services.AddControllers();
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddFluentValidation(config => {
+builder.Services.AddControllers(opt =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+}).AddFluentValidation(config => {
     config.RegisterValidatorsFromAssemblyContaining<Create>();
 });
 
