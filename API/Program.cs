@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Application.Activities;
 using FluentValidation.AspNetCore;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddControllers().AddFluentValidation(config => {
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
