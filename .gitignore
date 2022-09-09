@@ -6,3 +6,5 @@ riderModule.iml
 .idea
 .vscode
 activities.*
+
+appsettings*
