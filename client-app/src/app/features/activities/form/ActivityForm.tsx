@@ -1,11 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { useParams } from "react-router-dom";
+import {v4 as uuid} from 'uuid';
+import { useHistory, useParams } from "react-router-dom";
 import { Button, Form, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../layout/LoadingComponent";
 import { useStore } from "../../../stores/store";
 
 export default observer(function ActivityForm() {
+  const history = useHistory();
   const {activityStore} = useStore();
   const {createActivity, updateActivity, loadActivity, 
         loading, loadingInitial} = activityStore;
@@ -26,7 +28,15 @@ export default observer(function ActivityForm() {
   }, [id, loadActivity]);
 
   function handleSubmit() {
-    activity.id ? updateActivity(activity) : createActivity(activity);
+    if (activity.id.length === 0) {
+      let newActivity = {
+        ...activity,
+        id: uuid()
+      };
+      createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`))
+    } else {
+      updateActivity(activity).then(() => history.push(`/activities/${activity.id}`))
+    }
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
