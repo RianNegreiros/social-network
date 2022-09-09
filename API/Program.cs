@@ -4,19 +4,21 @@ using Application.Activities;
 using FluentValidation.AspNetCore;
 using API.Middleware;
 using API.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
+builder.Services.AddControllers();
 
 // Add services to the container.
 
 builder.Services.AddControllers().AddFluentValidation(config => {
     config.RegisterValidatorsFromAssemblyContaining<Create>();
 });
+
+builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -45,8 +47,9 @@ var services = scope.ServiceProvider;
 try
 {
     var context = services.GetRequiredService<DataContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await context.Database.MigrateAsync();
-    await Seed.SeedData(context);
+    await Seed.SeedData(context, userManager);
 }
 catch (Exception ex)
 {
