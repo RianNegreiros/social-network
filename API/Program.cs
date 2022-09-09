@@ -3,8 +3,14 @@ using Persistence;
 using Application.Activities;
 using FluentValidation.AspNetCore;
 using API.Middleware;
+using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+builder.Services.AddApplicationServices();
 
 // Add services to the container.
 
@@ -19,6 +25,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
