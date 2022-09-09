@@ -1,14 +1,15 @@
-using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Application.Activities;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-
-builder.Services.AddApplicationServices();
+builder.Services.AddControllers().AddFluentValidation(config => {
+    config.RegisterValidatorsFromAssemblyContaining<Create>();
+});
 
 var app = builder.Build();
 
