@@ -44,10 +44,18 @@ export default class UserStore {
   }
 
   register = async (creds: UserFormValues) => {
-    const user = await agent.Account.register(creds);
-    store.commonStore.setToken(user.token);
-    runInAction(() => this.user = user);
-    history.push('/activities');
-    store.modalStore.closeModal();
-  }
+    try {
+        const user = await agent.Account.register(creds);
+        store.commonStore.setToken(user.token);
+        runInAction(() => this.user = user);
+        history.push('/activities');
+        store.modalStore.closeModal();
+    } catch (error) {
+        throw error;
+    }
+}
+
+  setImage = (image: string) => {
+    if (this.user) this.user.image = image;
+} 
 }
