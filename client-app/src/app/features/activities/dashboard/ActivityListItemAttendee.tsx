@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { List, Image, Popup } from 'semantic-ui-react';
 import { Profile } from '../../../models/profile';
-import ProfileCard from '../profiles/ProfileCard';
+import ProfileCard from '../../profiles/ProfileCard';
 
 interface Props {
   attendees: Profile[];
