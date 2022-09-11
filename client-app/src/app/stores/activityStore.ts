@@ -172,4 +172,8 @@ private getActivity = (id: string) => {
       runInAction(() => this.loading = false);
     }
   }
+
+  clearSeletedActivity = () => {
+    this.selectedActivity = undefined;
+  }
 }
