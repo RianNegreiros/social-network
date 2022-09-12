@@ -1,4 +1,4 @@
-using Application.interfaces;
+using Application.Interfaces;
 using Application.Photos;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
