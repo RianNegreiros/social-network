@@ -4,6 +4,7 @@ using Application.interfaces;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace API.Extensions
@@ -15,7 +16,10 @@ namespace API.Extensions
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            services.AddDbContext<DataContext>();
+            services.AddDbContext<DataContext>(opt => 
+            {
+                opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            });
 
             services.AddCors(opt =>
             {

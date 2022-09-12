@@ -8,12 +8,7 @@ namespace Persistence
     {
         public DataContext(DbContextOptions options) : base(options)
         {
-
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("DataSource=activities.db");
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         public DbSet<Activity> Activities { get; set; }
