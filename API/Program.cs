@@ -37,12 +37,19 @@ app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny());
 app.UseCspReportOnly(opt => opt
     .BlockAllMixedContent()
-    .StyleSources(s => s.Self())
-    .FontSources(s => s.Self())
+    .StyleSources(s => s.Self().CustomSources(
+        "https://fonts.googleapis.com",
+        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="
+    ))
+    .FontSources(s => s.Self().CustomSources(
+        "https://fonts.gstatic.com", "data:"
+    ))
     .FormActions(s => s.Self())
     .FrameAncestors(s => s.Self())
     .ImageSources(s => s.Self())
-    .ScriptSources(s => s.Self())
+    .ScriptSources(s => s.Self().CustomSources(
+        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="
+    ))
 );
 
 // Configure the HTTP request pipeline.
