@@ -39,7 +39,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseCors("CorsPolicy");
 
@@ -50,6 +53,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
     endpoints.MapHub<ChatHub>("/chat");
+    endpoints.MapFallbackToController("Index", "Fallback");
 });
 
 using var scope = app.Services.CreateScope();
