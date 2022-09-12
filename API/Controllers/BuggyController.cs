@@ -1,9 +1,8 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class BuggyController : BaseApiController
+  public class BuggyController : BaseApiController
     {
         [HttpGet("not-found")]
         public ActionResult GetNotFound()
@@ -23,8 +22,8 @@ namespace API.Controllers
             throw new Exception("This is a server error");
         }
 
-        [HttpGet("unauthorised")]
-        public ActionResult GetUnauthorised()
+        [HttpGet("unauthorized")]
+        public ActionResult GetUnauthorized()
         {
             return Unauthorized();
         }

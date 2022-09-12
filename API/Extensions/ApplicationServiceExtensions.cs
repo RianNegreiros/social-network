@@ -1,6 +1,6 @@
 using Application.Activities;
 using Application.Core;
-using Application.interfaces;
+using Application.Interfaces;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
@@ -9,7 +9,7 @@ using Persistence;
 
 namespace API.Extensions
 {
-    public static class ApplicationServiceExtensions
+  public static class ApplicationServiceExtensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
@@ -18,7 +18,7 @@ namespace API.Extensions
 
             services.AddDbContext<DataContext>(opt => 
             {
-                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIROMENT");
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
                 string connStr;
 
@@ -42,6 +42,8 @@ namespace API.Extensions
 
                     connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
                 }
+
+                opt.UseNpgsql(connStr);
             });
 
             services.AddCors(opt =>
