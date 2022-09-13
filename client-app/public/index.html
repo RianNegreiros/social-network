@@ -11,10 +11,22 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
+    <title>Activities Social Network</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '956281475764682',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+        
     <div id="root"></div>
   </body>
 </html>

@@ -6,6 +6,8 @@ import { history } from '../..';
 
 export default class UserStore {
   user: User | null = null;
+  facebookAccessToken: string | null = null;
+  facebookLoading = false;
 
   constructor() {
     makeAutoObservable(this)
@@ -61,5 +63,37 @@ export default class UserStore {
 
   setDisplayName = (name: string) => {
     if (this.user) this.user.displayName = name;
+  }
+
+  getFacebookLoginStatus = async () => {
+    window.FB.getLoginStatus(response => {
+      if (response.status === 'connected') {
+        this.facebookAccessToken = response.authResponse.accessToken;
+      }
+    })
+  }
+
+  facebookLogin = () => {
+    this.facebookLoading = true;
+    const apiLogin = (accessToken: string) => {
+      agent.Account.facebookLogin(accessToken).then(user => {
+        store.commonStore.setToken(user.token);
+        runInAction(() => {
+          this.user = user;
+          this.facebookLoading = false;
+        })
+        history.push('/activities')
+      }).catch(error => {
+        console.log(error);
+        runInAction(() => this.facebookLoading = false);
+      })
+    }
+    if (this.facebookAccessToken) {
+      apiLogin(this.facebookAccessToken)
+    } else {
+      window.FB.login(response => {
+        apiLogin(response.authResponse.accessToken);
+      }, {scope: 'public_profile,email'})
+    }
   }
 }
