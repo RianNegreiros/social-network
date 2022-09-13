@@ -48,11 +48,13 @@ app.UseCspReportOnly(opt => opt
     .FrameAncestors(s => s.Self())
     .ImageSources(s => s.Self().CustomSources(
         "https://res.cloudinary.com",
-        "https://www.facebook.com"
+        "https://www.facebook.com",
+        "data:"
     ))
     .ScriptSources(s => s.Self().CustomSources(
         "https://connect.facebook.net",
-        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="
+        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo=",
+        "sha256-+ZldBJE2bvpCIFmaInRZAIT19Nvm9S0SRWYV7zqaut8="
     ))
 );
 
