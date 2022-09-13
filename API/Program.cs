@@ -40,7 +40,8 @@ app.UseCsp(opt => opt
     .StyleSources(s => s.Self().CustomSources(
         "https://fonts.googleapis.com",
         "sha256-w8jhbLaiEDfNH+wnu6yJWThCr/0XvCWHx2F1xb1r/3U=",
-        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="
+        "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo=",
+        "sha256-2fhzhndSLpcJjbxwgHh3IdzaIg+KMgz9uOg6h5HWqRI="
     ))
     .FontSources(s => s.Self().CustomSources(
         "https://fonts.gstatic.com", "data:"
