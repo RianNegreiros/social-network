@@ -35,10 +35,11 @@ app.UseXContentTypeOptions();
 app.UseReferrerPolicy(opt => opt.NoReferrer());
 app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny());
-app.UseCspReportOnly(opt => opt
+app.UseCsp(opt => opt
     .BlockAllMixedContent()
     .StyleSources(s => s.Self().CustomSources(
         "https://fonts.googleapis.com",
+        "sha256-w8jhbLaiEDfNH+wnu6yJWThCr/0XvCWHx2F1xb1r/3U=",
         "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="
     ))
     .FontSources(s => s.Self().CustomSources(
