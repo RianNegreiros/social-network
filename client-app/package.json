@@ -34,7 +34,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "postbuild": "rimraf ../API/wwwroot && mv build ../API/wwwroot",
     "test": "react-scripts test",
