@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace API.Controllers
 {
-    [AllowAnonymous]
+  [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
   public class AccountController : ControllerBase
@@ -21,7 +21,7 @@ namespace API.Controllers
     private readonly IConfiguration _config;
     private readonly HttpClient _httpClient;
 
-    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signManager, TokenService tokenService, IConfiguration config, HttpClient httpClient)
+    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signManager, TokenService tokenService, IConfiguration config)
     {
       _userManager = userManager;
       _signManager = signManager;
