@@ -51,6 +51,7 @@ app.UseCsp(opt => opt
     .ImageSources(s => s.Self().CustomSources(
         "https://res.cloudinary.com",
         "https://www.facebook.com",
+        "https://scontent.fbhz2-1.fna.fbcdn.net",
         "data:"
     ))
     .ScriptSources(s => s.Self().CustomSources(
