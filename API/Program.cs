@@ -52,6 +52,7 @@ app.UseCsp(opt => opt
         "https://res.cloudinary.com",
         "https://www.facebook.com",
         "https://scontent.fbhz2-1.fna.fbcdn.net",
+        "https://scontent-iad3-2.xx.fbcdn.net",
         "data:"
     ))
     .ScriptSources(s => s.Self().CustomSources(
