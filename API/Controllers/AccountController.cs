@@ -144,7 +144,7 @@ namespace API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("fbLogin")]
+        [HttpPost("facebookLogin")]
         public async Task<ActionResult<UserDto>> FacebookLogin(string accessToken)
         {
             var fbVerifyKeys = _config["Facebook:AppId"] + "|" + _config["Facebook:AppSecret"];
