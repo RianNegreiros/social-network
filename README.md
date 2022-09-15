@@ -78,11 +78,15 @@
 
 ## How to run
 
-### prerequisites
+### Prerequisites
 
 - [.NET Core 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 - [PostgreSQL](https://www.postgresql.org/)
+
+- [Node](https://nodejs.org/en/)
+
+- [NPM](https://www.npmjs.com/)
 
 1. Config appsettings.json
 2. Build the React app:
