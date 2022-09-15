@@ -8,23 +8,23 @@
 
 ### Users can
 
-- register
-- authenticate with email or Facebook
-- Upload Photos
-- Check profile to see bio, photos, events, followers and following
-- Follow users
+- Register
+- Authenticate by email or Facebook
+- Check users profiles to see bio, photos, events, followers and following
+- Edit their own profile
+- Follow and unfollow users
 - Create activities
 - Edit the activities their are hosting
 - Join others users activities
 - Cancel attendance
-- Comment in the activity
-- Filter timeline by All Activities/I'm going/I'm hosting or by date
+- Chat in the activity
+- Filter timeline by: All Activities, I'm going, I'm hosting or by date
 
 ### Methodologies
 
 - Clean Architecture
 - CQRS
-- Code first migrations
+- Code First Migrations
 
 ### Technologies and Tools
 
