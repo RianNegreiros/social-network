@@ -41,7 +41,8 @@ app.UseCsp(opt => opt
         "https://fonts.googleapis.com",
         "sha256-w8jhbLaiEDfNH+wnu6yJWThCr/0XvCWHx2F1xb1r/3U=",
         "sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo=",
-        "sha256-2fhzhndSLpcJjbxwgHh3IdzaIg+KMgz9uOg6h5HWqRI="
+        "sha256-2fhzhndSLpcJjbxwgHh3IdzaIg+KMgz9uOg6h5HWqRI=",
+        "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk="
     ))
     .FontSources(s => s.Self().CustomSources(
         "https://fonts.gstatic.com", "data:"
@@ -55,7 +56,6 @@ app.UseCsp(opt => opt
         "https://scontent-iad3-2.xx.fbcdn.net",
         "data:"
     ))
-    .ScriptSources(s => s.Self())
 );
 
 // Configure the HTTP request pipeline.
