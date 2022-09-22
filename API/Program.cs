@@ -55,8 +55,7 @@ app.UseCsp(opt => opt
         "https://scontent-iad3-2.xx.fbcdn.net",
         "data:"
     ))
-    .ScriptSources(s => s.Self().CustomSources(
-    ))
+    .ScriptSources(s => s.Self())
 );
 
 // Configure the HTTP request pipeline.
