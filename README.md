@@ -4,6 +4,9 @@
 
 ## Deploy on [Heroku](https://dotnet-react-social-network.herokuapp.com/)
 
+### Preview
+![Application image preview](/client-app/public/assets/app-preview-image.png)
+
 ## Features
 
 ### Users can
