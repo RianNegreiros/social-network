@@ -5,6 +5,7 @@
 ## Deploy on [Heroku](https://dotnet-react-social-network.herokuapp.com/)
 
 ### Preview
+
 ![Application image preview](/client-app/public/assets/app-preview-image.png)
 
 ## Features
@@ -91,15 +92,15 @@
 
 - [NPM](https://www.npmjs.com/)
 
-1. Config appsettings.json
-2. Build the React app:
+1.Config appsettings.json
+2.Build the React app:
 
 ```bash
 cd client-app
 npm run build
 ```
 
-3. Run the API:
+3.Run the API:
 
 ```bash
 cd ../API
