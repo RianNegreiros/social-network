@@ -2,7 +2,7 @@
 
 ## Full-Stack application to users share their activities, and follow activities from others
 
-## Deploy on [Heroku](https://dotnet-react-social-network.herokuapp.com/)
+## Deploy on [Render](https://full-stack-social-network.onrender.com/)
 
 ### Preview
 
